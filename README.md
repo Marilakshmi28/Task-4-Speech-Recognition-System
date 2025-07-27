@@ -39,3 +39,7 @@ Since Tinkercad doesn't support real-time voice input, we simulate recognized vo
 - Buzzer
 - 220Ω Resistor
 - Serial Monitor (for input)
+
+  
+click here to watch the output demo:
+https://drive.google.com/drive/folders/10vHvR0fS1olQ8mPNWyz6s_rVuGryVLsx?usp=drive_link
