@@ -1,0 +1,28 @@
+int ledPin=8;
+int buzzerPin = 9;
+String command = "";
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  Serial.begin(9600);
+  Serial.println("Type HELP / ALERT / FIRE to trigger emergency");
+}
+
+void loop() {
+  if (Serial.available()) {
+    command = Serial.readStringUntil('\n');
+    command.trim();
+
+    if (command == "HELP" || command == "ALERT" || command == "FIRE" || command == "DANGER") {
+      Serial.println(" Emergency Triggered: " + command);
+      digitalWrite(ledPin, HIGH);
+      tone(buzzerPin, 1000);  // Play 1kHz tone
+      delay(2000);  // Alert duration
+      noTone(buzzerPin);
+      digitalWrite(ledPin, LOW);
+    } else {
+      Serial.println("Invalid or Safe Command");
+    }
+  }
+}
